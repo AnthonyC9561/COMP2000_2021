@@ -30,5 +30,17 @@ public class Cell {
             g.drawRect(posX, posY, sizeX, sizeY);
     }
 
+    public void cellHighlight(double x, double y, Graphics g) {//x and y from mouse position on panel
+        int rounderX =(int)x % sizeX; //to round to the nearest cell drawing position
+        int rounderY = (int)y % sizeY;
+        int cellInitPosX = (int)x - rounderX;  
+        int cellInitPosY = (int)y - rounderY;
+        
+        g.setColor(Color.GRAY);
+        g.fillRect(cellInitPosX, cellInitPosY,sizeX,sizeY);
+        g.setColor(cellOutlineColor);
+        g.drawRect(cellInitPosX,cellInitPosY, sizeX, sizeY);
+
+    }
 
 }

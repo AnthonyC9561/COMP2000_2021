@@ -3,10 +3,22 @@ import java.awt.*;
 public class Main extends JFrame{//extends meeaning inheriting properties from a parent class
     
     public static void main(String[] args) throws Exception {
-     Main window = new Main();
+        Main window = new Main();
+
+        while (window.isActive()) {
+            Point mousePoint = MouseInfo.getPointerInfo().getLocation();
+            Point mouseLoc = window.getLocationOnScreen();
+            Double x = mousePoint.getX() - mouseLoc.getX();
+            Double y = mousePoint.getY() - mouseLoc.getY();
+           // Point mousePoint = window.getMousePosition().getLocation();
+            //System.out.println("X and Y are" + mousePoint.getX() + " " + mousePoint.getY());
+            System.out.println("X and Y points are:" + x + "  " + y);
+        }
+    }
+
     // window.run();
 
-    }
+    
 
 public class Canvas extends JPanel {
     public Canvas() {
@@ -27,6 +39,7 @@ public class Canvas extends JPanel {
       public void paint(Graphics g){
         Grid grid = new Grid(710,710,20,20);
         Cell cell = new Cell(35,35,Color.WHITE,Color.BLACK);
+        grid.setGrid(cell);
         grid.paintWholeGrid(10 ,10 ,cell ,g);
         }
     }

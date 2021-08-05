@@ -13,26 +13,30 @@ public class Grid {
         cellNumX = cellX;
         cellNumY = cellY;
 
-        gridOfCells = new Cell[cellX + 1][cellY + 1];
+        gridOfCells = new Cell[cellX][cellY]; //allocates space for 2d for the number of cells
         
         
     }
-   
+    public void setGrid(Cell cell){ //creates a 2D array of cells
+        for(int i = 0; i < cellNumX ; i++) {
+            for(int j = 0; j < cellNumY; j++) {
+                gridOfCells[i][j] = cell;
+            }
+        }
+    }
+
     public void paintWholeGrid(int startX, int startY,Cell cell, Graphics g) {//gridSize in pixels, startX - where to start drawing grid
-        int gridX = 0;
-        int gridY = 0;
 
         for(int i = startX; i < gridNumX ; i+= cell.getCellSizeX()) {
             for(int j = startY; j < gridNumY ; j+= cell.getCellSizeY()) {
-                System.out.println(gridX + "  " + gridY);
                 cell.paintCell(i,j,g);
-                gridOfCells[gridX][gridY] = cell; 
-                gridX++;
             }
-            gridX = 0;
-            gridY++;
         }
     
+    }
+
+    public void updateGrid(Cell cell) {
+
     }
         
 
