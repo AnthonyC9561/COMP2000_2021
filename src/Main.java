@@ -14,7 +14,9 @@ class Main extends JFrame {
 
         @Override
         public void paint(Graphics g) {
-            grid.paint(g, getMousePosition());
+            Stage s = new Stage();
+            s.setStage(g,getMousePosition()); //replaced with setStage to paint over the grid
+           // grid.paint(g, getMousePosition());
         }
 
     }
