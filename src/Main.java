@@ -1,22 +1,25 @@
 import javax.swing.*;
 import java.awt.*;
-
 class Main extends JFrame {
     
     class App extends JPanel {
         
-        Grid grid;
+        Stage stage;
 
         public App() {
             setPreferredSize(new Dimension(720, 720));
-            grid = new Grid();
+            stage = new Stage();
         }
 
         @Override
         public void paint(Graphics g) {
+<<<<<<< HEAD
             Stage s = new Stage();
             s.setStage(g,getMousePosition()); //replaced with setStage to paint over the grid
            // grid.paint(g, getMousePosition());
+=======
+            stage.paint(g, getMousePosition());
+>>>>>>> 6ab525615c19d2d2a4cc2de353c6f09c66fb4f9d
         }
 
     }

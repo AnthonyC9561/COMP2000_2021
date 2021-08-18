@@ -1,5 +1,6 @@
 import java.awt.*;
 
+<<<<<<< HEAD
 public class Car implements Actor{ //common items among train, car and boat includes the fields, the implemented paint all have different implementations 
     int x = 10 + 35 * 3;
     int y =  10 + 35 * 19;
@@ -25,4 +26,11 @@ public class Car implements Actor{ //common items among train, car and boat incl
             g.drawRect(x,y,size,size);
     }
 
+=======
+public class Car extends Actor {
+    public Car(Cell inLoc) {
+        loc = inLoc;
+        color = new Color(148, 33, 146); // or we could use Color.MAGENTA
+    }
+>>>>>>> 6ab525615c19d2d2a4cc2de353c6f09c66fb4f9d
 }

@@ -1,5 +1,6 @@
 import java.awt.*;
 
+<<<<<<< HEAD
 public class Train implements Actor {
     int x = 10;
     int y = 10 + 35 * 19;
@@ -27,4 +28,11 @@ public class Train implements Actor {
 
     }
 
+=======
+public class Train extends Actor {
+    public Train(Cell inLoc) {
+        loc = inLoc;
+        color = Color.RED;
+    }
+>>>>>>> 6ab525615c19d2d2a4cc2de353c6f09c66fb4f9d
 }
