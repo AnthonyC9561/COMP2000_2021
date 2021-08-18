@@ -1,34 +1,29 @@
 import java.awt.*;
 
-<<<<<<< HEAD
-public class Boat implements Actor{
-    int x = 10 + 35 * 6; //hardcoded location of the 3 vehicles
-    int y = 10 + 35 * 19;
-    Point p;
-    int size = 35;
-    Color boatColor;
-    Cell boat;
-
-    public Boat() {
-        boat = new Cell(x,y);
-        boatColor = Color.ORANGE;
-        p = new Point(x,y);
-    }
-
-    public Point getPoint() {
-        return p;
-    }
-
-    public void paint(Graphics g) {
-            g.setColor(boatColor);
-            g.fillRect(x,y,35,35);
-            g.setColor(Color.BLACK);
-            g.drawRect(x,y,size,size);
-=======
 public class Boat extends Actor {
     public Boat(Cell inLoc) {
         loc = inLoc;
-        color = Color.ORANGE;
->>>>>>> 6ab525615c19d2d2a4cc2de353c6f09c66fb4f9d
+         color = Color.ORANGE;
+    }
+
+    @Override
+    public void setShape() {
+        Polygon leftSail = new Polygon();
+        leftSail.addPoint(loc.x + 16, loc.y + 11);
+        leftSail.addPoint(loc.x + 11, loc.y + 24);
+        leftSail.addPoint(loc.x + 16, loc.y + 24);
+        Polygon rightSail = new Polygon();
+        rightSail.addPoint(loc.x + 18, loc.y + 7);
+        rightSail.addPoint(loc.x + 24, loc.y + 24);
+        rightSail.addPoint(loc.x + 18, loc.y + 24);
+        Polygon body = new Polygon();
+        body.addPoint(loc.x + 6, loc.y + 24);
+        body.addPoint(loc.x + 29, loc.y + 24);
+        body.addPoint(loc.x + 24, loc.y + 29);
+        body.addPoint(loc.x + 11, loc.y + 29);
+
+        shapes.add(leftSail);
+        shapes.add(rightSail);
+        shapes.add(body);
     }
 }

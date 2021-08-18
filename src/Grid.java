@@ -21,11 +21,7 @@ class Grid {
         }
     }
 
-<<<<<<< HEAD
-}
-=======
     public Cell cellAtColRow(int c, int r) {
         return cells[c][r];
     }
 }
->>>>>>> 6ab525615c19d2d2a4cc2de353c6f09c66fb4f9d

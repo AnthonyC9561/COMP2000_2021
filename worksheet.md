@@ -95,6 +95,7 @@ Did you notice the repetition in the stage paint method?  All three actors have 
 
 🤔 In my solution, I will declare the actors list as a `List` instead of an `ArrayList`.  Any idea why?  Why does this even work?
 
+List is an interface, but the actors can be declared a list as long it uses the implementation of regular class such as ArrayList
 # Task 11
 
 Turns out you are not able to use colours to distinguish the different types of actors!  You are going to need to draw little shapes to represent them.  You have been told you can't use images, you have to draw with Java2D primitives so the game can scale up and down as required.  The `Graphics` objects we are painting on know how to draw `Polygon`s (https://docs.oracle.com/javase/8/docs/api/java/awt/Polygon.html) so that is what we are going to use.  However, one polygon is not enough for each actor, we need each to be made of a list of polygons.  We will use `ArrayList` again!  Have the `Color` field of `Actor` changed to a list of polygons and initialise each subclass to an appropriate set of polygons.  You might find the following polygons a useful starting point where `location` is the top-left point of the vehicle (but I am sure you can do better as well - share your designs on the forums!):

@@ -1,36 +1,43 @@
 import java.awt.*;
 
-<<<<<<< HEAD
-public class Car implements Actor{ //common items among train, car and boat includes the fields, the implemented paint all have different implementations 
-    int x = 10 + 35 * 3;
-    int y =  10 + 35 * 19;
-    Point p;
-    int size = 35;
-    Color carColor;
-    Cell car;
-
-    public Car() {
-        car = new Cell(x,y); 
-        carColor = new Color(102,0,153); //purple colour
-        p = new Point(x,y);
-    }
-
-    public Point getPoint() {
-        return p;
-    }
-
-    public void paint(Graphics g) {
-            g.setColor(carColor);
-            g.fillRect(x,y,35,35);
-            g.setColor(Color.BLACK);
-            g.drawRect(x,y,size,size);
-    }
-
-=======
 public class Car extends Actor {
     public Car(Cell inLoc) {
         loc = inLoc;
         color = new Color(148, 33, 146); // or we could use Color.MAGENTA
     }
->>>>>>> 6ab525615c19d2d2a4cc2de353c6f09c66fb4f9d
+
+    @Override
+    public void setShape() {
+        int sides=20;
+        int angle;
+        double circleX;
+        double circleY;
+        Polygon rearWheel = new Polygon();
+        Polygon frontWheel = new Polygon();
+        angle = 360/sides;
+
+        for(int s=0; s<=sides; s++) {
+            circleX = (4.0*Math.sin(Math.toRadians(s*angle)));
+            circleY = (4.0*Math.cos(Math.toRadians(s*angle)));
+            rearWheel.addPoint(loc.x + 11 + (int) circleX, loc.y + 25 + (int) circleY);
+            frontWheel.addPoint(loc.x + 24 + (int) circleX, loc.y + 25 + (int) circleY);
+        }
+
+        Polygon body = new Polygon();
+        body.addPoint(loc.x + 6, loc.y + 14);
+        body.addPoint(loc.x + 29, loc.y + 14);
+        body.addPoint(loc.x + 29, loc.y + 20);
+        body.addPoint(loc.x + 6, loc.y + 20);
+        Polygon top = new Polygon();
+        top.addPoint(loc.x + 11, loc.y + 7);
+        top.addPoint(loc.x + 20, loc.y + 7);
+        top.addPoint(loc.x + 24, loc.y + 14);
+        top.addPoint(loc.x + 11, loc.y + 14);
+
+        shapes.add(rearWheel);
+        shapes.add(frontWheel);
+        shapes.add(body);
+        shapes.add(top);
+    }
+    
 }
